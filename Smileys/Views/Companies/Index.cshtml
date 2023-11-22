@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Smileys.Models.Company>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<h2>Restauranter i nærheden</h2>
+@foreach (var item in Model) {
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12 col-md-10 bg-success text-white p-3 mb-3 d-flex align-items-center">
+                <img class="restaurant-icon" src="~/images/@item.CurrentSmileyUrl" alt="Smiley" style="height: 100%; padding: 0; margin: 0 10px 0 0"/>
+                <div class="restaurant-info">
+                    <h3 class="mb-0">@item.Name</h3>
+                    <p>@item.Address</p>
+                </div>
+                <a asp-action="Details" asp-route-id="@item.Id" class="ms-auto btn btn-outline-light btn-sm">Læs mere...</a>
+            </div>
+        </div>
+    </div>
+}

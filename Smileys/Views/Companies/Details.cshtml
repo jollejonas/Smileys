@@ -1,0 +1,34 @@
+﻿@model Smileys.Models.Company
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="container">
+    <h1>@Model.Name</h1>
+    <div class="row">
+        <div class="col-8">
+            <h3>Adresse:</h3>
+            <p>@Model.Address</p>
+            <br />
+            <p>Datene på denneside er indhentet fra Fødevarestyrelsen</p>
+            <hr />
+        </div>
+        <div class="col-4">
+            <img src="~/images/@Model.CurrentSmileyUrl" />
+
+            <h2>Tidligere smileys</h2>
+
+                <div>
+                    <img src="~/images/@Model.PreviousSmiley1Url" />
+                    <img src="~/images/@Model.PreviousSmiley2Urls" />
+                    <img src="~/images/@Model.PreviousSmiley3Urls" />
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
